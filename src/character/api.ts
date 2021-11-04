@@ -1,10 +1,9 @@
 import { Character, CharacterResponse } from "./types";
+const apiURL: string = import.meta.env.VITE_API_URL;
 
 export default {
   // get all characters
-  getAllCharacters: async (
-    nextUrl: string = `https://rickandmortyapi.com/api/character`
-  ) => {
+  getAllCharacters: async (nextUrl: string = `${apiURL}/character`) => {
     const gettedCharacters: CharacterResponse = (await fetch(nextUrl).then(
       (r) =>
         // `https://rickandmortyapi.com/api/character`
@@ -16,7 +15,7 @@ export default {
   // character by Id
   getCharacterById: async (charactId: number) => {
     const gettedCharacter: Character = (await fetch(
-      `https://rickandmortyapi.com/api/character/${charactId}`
+      `${apiURL}/character/${charactId}`
     ).then((r) => r.json())) as Character;
     return gettedCharacter;
   },
