@@ -1,0 +1,6 @@
+.character-grid-container {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  grid-template-columns: repeat(6, 1fr);
+}

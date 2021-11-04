@@ -1,16 +1,11 @@
-export interface RickMorty {
+import { Info } from "../../types";
+
+export interface CharacterResponse {
   info: Info;
-  results: Result[];
+  results: Character[];
 }
 
-export interface Info {
-  count: number;
-  pages: number;
-  next: string;
-  prev: null;
-}
-
-export interface Result {
+export interface Character {
   id: number;
   name: string;
   status: Status;
@@ -45,14 +40,4 @@ export enum Status {
   Alive = "Alive",
   Dead = "Dead",
   Unknown = "unknown",
-}
-
-export interface Pagination {
-  next: string | null;
-  prev: string | null;
-}
-
-export enum PaginationAction {
-  Next = "Next",
-  Prev = "Prev",
 }
