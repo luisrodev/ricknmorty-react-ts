@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./main.css";
+import Header from "../components/Header";
 
 interface Props {
   children: React.ReactNode;
@@ -8,16 +8,10 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => {
   return (
-    <div className="">
-      <nav className="navbar">
-        <ul>
-          <li>
-            <Link to="/home">Home</Link>
-          </li>
-        </ul>
-      </nav>
+    <>
+      <Header />
       <div className="layout-container">{children}</div>
-    </div>
+    </>
   );
 };
 export default MainLayout;

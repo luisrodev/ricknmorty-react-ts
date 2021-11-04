@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { Result } from "../../types";
+import { Character } from "../../types";
 import "./index.css";
 
 interface Props {
-  characters: Result[];
+  characters: Character[];
 }
 
 const size: number = 120;

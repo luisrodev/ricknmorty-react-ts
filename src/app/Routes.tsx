@@ -5,7 +5,7 @@ import { RouteWithLayout } from "./utils";
 import MainLayout from "../layouts/main";
 
 //Pages
-import RickNMorty from "../pages/RickNMorty";
+import Home from "../pages/Home";
 import Character from "../pages/Character";
 
 const Routes = () => {
@@ -16,7 +16,7 @@ const Routes = () => {
         path="/home"
         exact
         Layout={MainLayout}
-        Component={RickNMorty}
+        Component={Home}
       />
       <RouteWithLayout
         path="/ricknmorty/:id"

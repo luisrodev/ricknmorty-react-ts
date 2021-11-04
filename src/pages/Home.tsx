@@ -1,12 +1,13 @@
 import React from "react";
-import RicknmortyApi from "../ricknmorty/api";
-import CharacterList from "../ricknmorty/components/CharacterGrid";
-import { Result, RickMorty, PaginationAction } from "../ricknmorty/types";
-import Pagination from "../ricknmorty/components/Pagination";
-import usePagination from "../ricknmorty/hooks/usePagination";
+import RicknmortyApi from "../character/api";
+import CharacterList from "../character/components/CharacterGrid";
+import { Character, CharacterResponse } from "../character/types";
+import { PaginationAction } from "../types";
+import Pagination from "../components/Pagination";
+import usePagination from "../hooks/usePagination";
 
-const RickNMorty = () => {
-  const [characters, setCharacters] = React.useState<Result[]>([]);
+const Home = () => {
+  const [characters, setCharacters] = React.useState<Character[]>([]);
   const {
     changePaginationMetadata,
     isNextEnable,
@@ -19,16 +20,18 @@ const RickNMorty = () => {
   const [isFetching, setIsFetching] = React.useState<boolean>(true);
 
   React.useEffect(function () {
-    RicknmortyApi.getAllCharacters().then((gettedCharacters: RickMorty) => {
-      setCharacters(gettedCharacters.results);
-      console.log(gettedCharacters.info);
-      const { next, prev } = gettedCharacters.info;
-      changePaginationMetadata({
-        next,
-        prev,
-      });
-      setIsFetching(false);
-    });
+    RicknmortyApi.getAllCharacters().then(
+      (gettedCharacters: CharacterResponse) => {
+        setCharacters(gettedCharacters.results);
+        console.log(gettedCharacters.info);
+        const { next, prev } = gettedCharacters.info;
+        changePaginationMetadata({
+          next,
+          prev,
+        });
+        setIsFetching(false);
+      }
+    );
   }, []);
 
   const handlePagination = (action: PaginationAction) => {
@@ -36,7 +39,7 @@ const RickNMorty = () => {
     const requestParam: string =
       action === PaginationAction.Next ? nextPage : prevPage;
     RicknmortyApi.getAllCharacters(requestParam).then(
-      (gettedCharacters: RickMorty) => {
+      (gettedCharacters: CharacterResponse) => {
         setCharacters(gettedCharacters.results);
         console.log(gettedCharacters.info);
         const { next, prev } = gettedCharacters.info;
@@ -73,4 +76,4 @@ const RickNMorty = () => {
   );
 };
 
-export default RickNMorty;
+export default Home;
