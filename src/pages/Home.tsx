@@ -70,7 +70,10 @@ const Home = () => {
           <h3>Cargando</h3>
         </div>
       ) : (
-        <CharacterList characters={characters} />
+        <>
+          <h2>Personajes</h2>
+          <CharacterList characters={characters} />
+        </>
       )}
     </>
   );
