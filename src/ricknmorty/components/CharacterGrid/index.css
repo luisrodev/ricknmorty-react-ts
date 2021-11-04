@@ -1,0 +1,15 @@
+.character-grid-container {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.character-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.character-box {
+  padding: 1rem;
+}

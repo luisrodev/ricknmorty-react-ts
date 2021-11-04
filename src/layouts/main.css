@@ -1,0 +1,18 @@
+.navbar {
+    background-color: gray;
+    height: 48px;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    gap: 2rem;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  
+  .layout-container {
+    background-color: lightcyan;
+  }
+  
