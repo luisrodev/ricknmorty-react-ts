@@ -6,17 +6,15 @@ interface Props {
   character: Character;
 }
 
-const size: number = 120;
+// const size: number = 150;
 
 const CharacterItem = ({ character }: Props) => {
   const { name, id, image } = character;
   return (
     <div className="character-container" key={id}>
       <Link to={`/ricknmorty/${id}`}>
-        <div className="character-details">
-          <img width={size} height={size} src={image} alt={name} />
-          {name}
-        </div>
+        <img className="character-img" src={image} alt={name} />
+        <p>{name}</p>
       </Link>
     </div>
   );
