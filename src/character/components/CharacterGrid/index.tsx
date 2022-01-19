@@ -10,7 +10,7 @@ const CharacterGrid = ({ characters }: Props) => {
   return (
     <div className="character-grid-container">
       {characters.map((character) => (
-        <CharacterItem character={character} />
+        <CharacterItem key={character.id} character={character} />
       ))}
     </div>
   );
